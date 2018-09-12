@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion  = '26.0.2'
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'com.takisoft.fix:datetimepicker'
+
+    publishedGroupId = 'com.takisoft.fix'
+    libraryName = 'Material DateTimePickers'
+    artifact = 'datetimepicker'
+
+    libraryDescription = 'The framework version of the material date / time pickers of Android ported back to API 14. This library uses the AppCompat library to provide the necessary functions for new features, such as vector drawables and material design.'
+
+    siteUrl = 'https://github.com/Gericop/DateTimePicker'
+    gitUrl = 'https://github.com/Gericop/DateTimePicker.git'
+
+    libraryVersion = '1.0.5'
+
+    developerId = 'gericop'
+    developerName = 'Gergely Kőrössy'
+    developerEmail = 'korossyg@takisoft.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0", "Unlicense"]
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:26.0.1"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+//apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/installv.gradle'
+//apply from: 'https://raw.githubusercontent.com/numetriclabz/jcenter/master/bintrayv.gradle'
+
+/*
+javadoc.doFirst {
+    failOnError false
+}*/

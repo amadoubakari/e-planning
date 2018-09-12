@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Open">OPEN</string>
+    <string name="Close">CLOSE</string>
+    <string name="msg_login_or_password_incorrect">Login ou mot de passe incorrect !</string>
+</resources>

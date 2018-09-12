@@ -1,0 +1,193 @@
+#
+# generated on 2018/08/23 04:18:48
+#
+# --table-start--
+dataClass=com.flys.eplanning.entities.DailyTask
+tableName=daily_task
+# --table-fields-start--
+# --field-start--
+fieldName=numero
+# --field-end--
+# --field-start--
+fieldName=heureDebut
+# --field-end--
+# --field-start--
+fieldName=heureFin
+# --field-end--
+# --field-start--
+fieldName=place
+# --field-end--
+# --field-start--
+fieldName=finish
+# --field-end--
+# --field-start--
+fieldName=notify
+# --field-end--
+# --field-start--
+fieldName=categorie
+# --field-end--
+# --field-start--
+fieldName=temps
+# --field-end--
+# --field-start--
+fieldName=archived
+# --field-end--
+# --field-start--
+fieldName=niveau
+defaultValue=0
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=day
+foreign=true
+foreignAutoRefresh=true
+maxForeignAutoRefreshLevel=2
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --field-start--
+fieldName=startDate
+# --field-end--
+# --field-start--
+fieldName=endDate
+# --field-end--
+# --field-start--
+fieldName=rememberMe
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.flys.eplanning.entities.User
+tableName=user
+# --table-fields-start--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=lastName
+# --field-end--
+# --field-start--
+fieldName=email
+# --field-end--
+# --field-start--
+fieldName=phoneNumber
+# --field-end--
+# --field-start--
+fieldName=login
+# --field-end--
+# --field-start--
+fieldName=password
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.flys.eplanning.entities.ReminderTime
+tableName=reminder_name
+# --table-fields-start--
+# --field-start--
+fieldName=hour
+# --field-end--
+# --field-start--
+fieldName=minute
+# --field-end--
+# --field-start--
+fieldName=title
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --field-start--
+fieldName=timeStamp
+# --field-end--
+# --field-start--
+fieldName=date
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.flys.eplanning.entities.Week
+tableName=week
+# --table-fields-start--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=month
+foreign=true
+foreignAutoRefresh=true
+maxForeignAutoRefreshLevel=2
+# --field-end--
+# --field-start--
+fieldName=days
+foreignCollection=true
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.flys.eplanning.entities.Day
+tableName=day
+# --table-fields-start--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=week
+foreign=true
+foreignAutoRefresh=true
+maxForeignAutoRefreshLevel=2
+# --field-end--
+# --field-start--
+fieldName=dailyTasks
+foreignCollection=true
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=com.flys.eplanning.entities.Month
+tableName=month
+# --table-fields-start--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=weeks
+foreignCollection=true
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

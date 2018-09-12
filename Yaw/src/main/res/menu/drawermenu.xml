@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sp_cagnottes"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="HOME" />
+    <item
+        android:id="@+id/menu_planning"
+        android:icon="@drawable/ic_today_black_24dp"
+        android:title="PLANNING" />
+    <item
+        android:id="@+id/menu_budget"
+        android:icon="@drawable/ic_baseline_account_balance_24px"
+        android:title="BUDGET" />
+    <item
+        android:id="@+id/sp_projets"
+        android:icon="@drawable/ic_trending_up_black_24dp"
+        android:title="VERSIONNINGS" />
+    <item
+        android:id="@+id/sp_configurations"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="SETTINGS" />
+    <item
+        android:id="@+id/connexion"
+        android:icon="@drawable/ic_login_black_24px"
+        android:title="SIGN IN" />
+    <item
+        android:id="@+id/deconnexion"
+        android:icon="@drawable/logout_rounded_left"
+        android:visible="false"
+        android:title="SIGN OUT" />
+</menu>

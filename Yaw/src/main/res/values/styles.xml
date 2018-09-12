@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorAccent">@color/blue_500</item>
+        <item name="menu">@color/colorAccent</item>
+        <item name="android:popupMenuStyle">@style/Theme.AppCompat</item>
+    </style>
+
+    <style name="popupmenu" parent="Base.Widget.AppCompat.PopupMenu">
+        <item name="android:textColor">@color/blue_400</item>
+        <item name="android:itemBackground">@color/white</item>
+        <item name="android:popupElevation">50dp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="LoginTheme" parent="@style/AppTheme.NoActionBar">
+        <item name="android:statusBarColor">@color/blue_500</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--App bar style-->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+
+</resources>
