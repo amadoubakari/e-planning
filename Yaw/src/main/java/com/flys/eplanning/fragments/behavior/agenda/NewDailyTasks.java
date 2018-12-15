@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 
+import com.flys.eplanning.dao.db.DayDao;
+import com.flys.eplanning.dao.db.DayDaoImpl;
+import com.flys.eplanning.entities.Day;
 import com.flys.generictools.dao.daoException.DaoException;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
@@ -108,6 +111,8 @@ public class NewDailyTasks extends AbstractFragment {
     @Bean(DailyTaskDaoImpl.class)
     protected DailyTaskDao<DailyTask, Long> dailyTaskLongDao;
 
+    @Bean(DayDaoImpl.class)
+    protected DayDao<Day, Long> dayDao;
 
     //Les différents comportements ou actions sur la vue
     @Click(R.id.date)
@@ -195,25 +200,17 @@ public class NewDailyTasks extends AbstractFragment {
 
 
                 //Tester la liste de toutes les taches planifiées
-                List<ReminderTime> reminderTimes=reminderTimeDao.getAll();
-                for (ReminderTime reminderTime:reminderTimes
-                     ) {
-                    Log.e(getClass().getSimpleName(),reminderTime.getTitle());
-                    Log.e(getClass().getSimpleName(),reminderTime.getDescription());
-                    Log.e(getClass().getSimpleName(),reminderTime.getTimeStamp()+"");
-                }
-
-
                 AlarmHelper alarmHelper = AlarmHelper.getInstance();
                 alarmHelper.setAlarm(reminderTime);
+                Day
+
+                    day=new Day("Dimanche",null);
+                    //int i= dayDao.save(day);
+
+                dailyTask.setDay(dayDao.save(day));
+                dailyTaskLongDao.save(dailyTask);
                 mainActivity.navigateToView(4, ISession.Action.NAVIGATION);
             }
-        } catch (DaoException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            dailyTaskLongDao.save(dailyTask);
         } catch (DaoException e) {
             e.printStackTrace();
         }
@@ -238,6 +235,13 @@ public class NewDailyTasks extends AbstractFragment {
         dailyTask = new DailyTask();
 
         calendar = Calendar.getInstance();
+
+
+    }
+
+    @Override
+    protected void initView(CoreState previousState) {
+
         categorie.setItems("Sélectionne la catégorie", "SANTE", "PROFESSIONNEL", "DEVELOPPEMENT PERSONNEL", "LOISIR");
         categorie.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
 
@@ -246,12 +250,6 @@ public class NewDailyTasks extends AbstractFragment {
                 dailyTask.setCategorie(item);
             }
         });
-
-    }
-
-    @Override
-    protected void initView(CoreState previousState) {
-
 
     }
 

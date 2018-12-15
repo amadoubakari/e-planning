@@ -38,7 +38,7 @@ public class DailyTask extends Task {
     private String name;
 
 
-    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    @DatabaseField(foreign = true, foreignAutoRefresh = true,canBeNull = false)
     private Day day;
 
 

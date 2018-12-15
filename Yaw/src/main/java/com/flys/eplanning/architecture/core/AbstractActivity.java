@@ -195,6 +195,7 @@ public abstract class AbstractActivity extends AppCompatActivity implements IMai
             // création barre d'onglets
             tabLayout = new CustomTabLayout(this);
             tabLayout.setTabTextColors(ContextCompat.getColorStateList(this, R.color.tab_text));
+            tabLayout.setBackground(getDrawable(R.drawable.tab_selector_color));
             // ajout de la barre d'onglets à la barre d'application
             AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
             this.customAppBarLayout = appBarLayout;

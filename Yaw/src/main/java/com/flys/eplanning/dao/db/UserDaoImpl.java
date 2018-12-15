@@ -43,12 +43,18 @@ public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao<U
     @Override
     public void flush() {
         userDao=null;
+        if ( databaseHelper.isOpen()){
+            databaseHelper.close();
+        }
     }
     List<Class<?>> getClasses(){
         List <Class<?>> classes=new ArrayList<>();
         classes.add(com.flys.eplanning.entities.DailyTask.class);
         classes.add(com.flys.eplanning.entities.ReminderTime.class);
         classes.add(com.flys.eplanning.entities.User.class);
+        classes.add(com.flys.eplanning.entities.Day.class);
+        classes.add(com.flys.eplanning.entities.Week.class);
+        classes.add(com.flys.eplanning.entities.Month.class);
         return classes;
     }
 

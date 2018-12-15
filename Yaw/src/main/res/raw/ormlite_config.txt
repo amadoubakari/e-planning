@@ -1,5 +1,5 @@
 #
-# generated on 2018/08/23 04:18:48
+# generated on 2018/10/18 04:16:41
 #
 # --table-start--
 dataClass=com.flys.eplanning.entities.DailyTask
@@ -41,6 +41,7 @@ fieldName=name
 # --field-end--
 # --field-start--
 fieldName=day
+canBeNull=false
 foreign=true
 foreignAutoRefresh=true
 maxForeignAutoRefreshLevel=2

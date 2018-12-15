@@ -18,14 +18,14 @@ import java.util.List;
 public abstract class GenericDaoImpl<T, K> implements GenericDao<T, K> {
 
     @Override
-    public int save(T t) throws DaoException {
-        int result=0;
+    public T save(T t) throws DaoException {
+        T result;
         if (t == null) {
             throw new DaoException("Entité null");
         }
 
         try {
-            result = getDao().create(t);
+            result = getDao().createIfNotExists(t);
             flush();
         } catch (SQLException e) {
             throw new DaoException(e.getMessage());

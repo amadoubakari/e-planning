@@ -85,6 +85,13 @@ public class DailyTaskDetailsFragment extends AbstractFragment {
     @ViewById(R.id.step5)
     protected TextView step5;
 
+    @ViewById(R.id.categorie)
+    protected TextView categorie;
+
+    @ViewById(R.id.testt)
+    protected TextView testt;
+
+
     @Click(R.id.task_evaluate)
     protected void evaluate() {
         if (evaluate.isChecked()) {
@@ -184,6 +191,9 @@ public class DailyTaskDetailsFragment extends AbstractFragment {
         finish.setChecked(dailyTask.isFinish());
         heureRappel.setText(dailyTask.getTemps());
         description.setText(dailyTask.getDescription());
+        testt.setText(dailyTask.getDay().getName());
+        categorie.setText(dailyTask.getCategorie());
+
     }
 
     @Override

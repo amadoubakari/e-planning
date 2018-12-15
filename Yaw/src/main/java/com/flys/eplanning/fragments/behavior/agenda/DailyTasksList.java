@@ -5,12 +5,14 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.flys.generictools.dao.daoException.DaoException;
+import com.flys.generictools.dao.db.Persistence;
 import com.flys.generictools.views.RecyclerViewItemClickListener;
 
 import org.androidannotations.annotations.Bean;
@@ -62,7 +64,9 @@ public class DailyTasksList extends AbstractFragment {
     @OptionsMenuItem(R.id.search)
     protected MenuItem menuItem;
 
-    private DividerItemDecoration dividerItemDecoration;
+
+
+    //private DividerItemDecoration dividerItemDecoration;
 
     //Les différents comportements ou actions sur la vue
     @Click(R.id.fab)
@@ -111,6 +115,7 @@ public class DailyTasksList extends AbstractFragment {
 
     @Override
     protected void initFragment(CoreState previousState) {
+
         listModels = new ArrayList<>();
         try {
             listModels.addAll(dailyTaskLongDao.getAll());
@@ -123,21 +128,16 @@ public class DailyTasksList extends AbstractFragment {
 
     @Override
     protected void initView(CoreState previousState) {
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(activity);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), linearLayoutManager.getOrientation());
-        dividerItemDecoration.getItemOffsets(new Rect(20, 0, 20, 0), null, recyclerView, null);
-        recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setLayoutManager(linearLayoutManager);
         tasks.setText(""+session.getDailyTasks().size());
-        mainActivityAdapter = new DailyTasksAdapter(session.getDailyTasks(), activity, new RecyclerViewItemClickListener() {
-            @Override
-            public void onItemClick(View v, int position) {
-                session.setSelectedDailyTask(listModels.get(position));
-                mainActivity.navigateToView(5, ISession.Action.NAVIGATION);
-            }
+        mainActivityAdapter = new DailyTasksAdapter(session.getDailyTasks(), activity, (v, position) -> {
+            session.setSelectedDailyTask(listModels.get(position));
+            mainActivity.navigateToView(5, ISession.Action.NAVIGATION);
         }, dailyTaskLongDao);
         recyclerView.setAdapter(mainActivityAdapter);
+
     }
 
     @Override
@@ -147,29 +147,25 @@ public class DailyTasksList extends AbstractFragment {
 
     @Override
     protected void updateOnRestore(CoreState previousState) {
-        listModels = new ArrayList<>();
+       //listModels = new ArrayList<>();
         try {
+            listModels.clear();
             listModels.addAll(dailyTaskLongDao.getAll());
         } catch (DaoException e) {
             e.printStackTrace();
         }
         session.setDailyTasks(listModels);
 
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), linearLayoutManager.getOrientation());
-        dividerItemDecoration.getItemOffsets(new Rect(20, 0, 20, 0), null, recyclerView, null);
-        recyclerView.addItemDecoration(dividerItemDecoration);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        //recyclerView.setHasFixedSize(true);
+
+        //recyclerView.setLayoutManager(linearLayoutManager);
         tasks.setText(""+session.getDailyTasks().size());
-        mainActivityAdapter = new DailyTasksAdapter(session.getDailyTasks(), activity, new RecyclerViewItemClickListener() {
-            @Override
-            public void onItemClick(View v, int position) {
-                session.setSelectedDailyTask(listModels.get(position));
-                mainActivity.navigateToView(5, ISession.Action.NAVIGATION);
-            }
+        /*mainActivityAdapter = new DailyTasksAdapter(session.getDailyTasks(), activity, (v, position) -> {
+            session.setSelectedDailyTask(listModels.get(position));
+            mainActivity.navigateToView(5, ISession.Action.NAVIGATION);
         }, dailyTaskLongDao);
-        recyclerView.setAdapter(mainActivityAdapter);
+        recyclerView.setAdapter(mainActivityAdapter);*/
+        mainActivityAdapter.notifyDataSetChanged();
     }
 
     @Override

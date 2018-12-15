@@ -1,0 +1,3 @@
+{
+  "classes":["com.flys.eplanning.entities.User","com.flys.eplanning.entities.DailyTask","com.flys.eplanning.entities.Day"]
+}

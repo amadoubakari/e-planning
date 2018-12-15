@@ -4,30 +4,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clipToPadding="false"
     android:background="@color/grey_200">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="3dp"
-        android:layout_marginTop="3dp"
-        app:cardElevation="10dp"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="1dp"
-        app:cardUseCompatPadding="false">
-
+       >
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/grey_500"
+            android:layout_marginLeft="70dp"
+            />
 
         <LinearLayout
             android:id="@+id/item_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:paddingBottom="10dp"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
             android:weightSum="100">
 
             <LinearLayout
@@ -45,8 +46,8 @@
                     android:background="@drawable/day_number_circle"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="1"
                     android:textColor="@color/grey_700"
                     android:textSize="18sp"
@@ -67,8 +68,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-thin"
-                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="Implémenter la création d'un compte agent."
                     android:textColor="@color/grey_700"
                     android:textSize="14sp"

@@ -25,7 +25,7 @@ public interface GenericDao<T, K> {
     public boolean processAfterSave(T t);
 
     //Elle permet de persister une entité en base de données.
-    public int save(T t) throws DaoException;
+    public T save(T t) throws DaoException;
 
     //Process to update entity
     public T update(T t);

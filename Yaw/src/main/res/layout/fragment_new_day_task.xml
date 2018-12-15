@@ -210,7 +210,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/text_line"
-                android:elevation="10dp"
+                android:elevation="1dp"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="16sp"
                 app:ms_text_color="@color/grey_800"

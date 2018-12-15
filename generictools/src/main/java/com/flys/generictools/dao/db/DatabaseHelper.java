@@ -73,4 +73,9 @@ public class DatabaseHelper<T, K> extends OrmLiteSqliteOpenHelper {
             throw new RuntimeException(e);
         }
     }
+
+    //Database init
+    List<Class<?>>  init(){
+        return null;
+    }
 }

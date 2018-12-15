@@ -55,6 +55,9 @@ public class DailyTaskDaoImpl<DailyTask, Long> extends GenericDaoImpl<DailyTask,
     @Override
     public void flush() {
         this.dailyTaskLongDao=null;
+       if ( databaseHelper.isOpen()){
+           databaseHelper.close();
+       }
     }
 
     public Context getContext() {
@@ -66,9 +69,13 @@ public class DailyTaskDaoImpl<DailyTask, Long> extends GenericDaoImpl<DailyTask,
     }
 
     List<Class<?>> getClasses(){
-       List <Class<?>> classes=new ArrayList<>();
-       classes.add(com.flys.eplanning.entities.DailyTask.class);
-       classes.add(ReminderTime.class);
-       return classes;
+        List <Class<?>> classes=new ArrayList<>();
+        classes.add(com.flys.eplanning.entities.DailyTask.class);
+        classes.add(com.flys.eplanning.entities.ReminderTime.class);
+        classes.add(com.flys.eplanning.entities.User.class);
+        classes.add(com.flys.eplanning.entities.Day.class);
+        classes.add(com.flys.eplanning.entities.Week.class);
+        classes.add(com.flys.eplanning.entities.Month.class);
+        return classes;
     }
 }

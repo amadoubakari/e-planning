@@ -31,7 +31,6 @@ public class ReminderTimeDaoImpl<ReminderTime, Long> extends GenericDaoImpl<Remi
 
     Dao<ReminderTime, Long> reminderTimeLongDao;
     DatabaseHelper<ReminderTime,Long> databaseHelper;
-    Context context;
 
     @Override
     public Dao<ReminderTime, Long> getDao() {
@@ -47,11 +46,18 @@ public class ReminderTimeDaoImpl<ReminderTime, Long> extends GenericDaoImpl<Remi
     @Override
     public void flush() {
         reminderTimeLongDao=null;
+        if ( databaseHelper.isOpen()){
+            databaseHelper.close();
+        }
     }
     List<Class<?>> getClasses(){
         List <Class<?>> classes=new ArrayList<>();
         classes.add(com.flys.eplanning.entities.DailyTask.class);
         classes.add(com.flys.eplanning.entities.ReminderTime.class);
+        classes.add(com.flys.eplanning.entities.User.class);
+        classes.add(com.flys.eplanning.entities.Day.class);
+        classes.add(com.flys.eplanning.entities.Week.class);
+        classes.add(com.flys.eplanning.entities.Month.class);
         return classes;
     }
 }
