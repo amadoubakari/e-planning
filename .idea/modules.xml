@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Flys.iml" filepath="$PROJECT_DIR$/Flys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/E-Planning.iml" filepath="$PROJECT_DIR$/E-Planning.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yaw/Yaw.iml" filepath="$PROJECT_DIR$/Yaw/Yaw.iml" />
       <module fileurl="file://$PROJECT_DIR$/datetimepicker/datetimepicker.iml" filepath="$PROJECT_DIR$/datetimepicker/datetimepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/generictools/generictools.iml" filepath="$PROJECT_DIR$/generictools/generictools.iml" />
