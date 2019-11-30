@@ -88,7 +88,7 @@ public class NotificationScheduler {
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(DAILY_REMINDER_REQUEST_CODE, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"E-Planning");
 
         Notification notification = builder.setContentTitle(title)
                 .setContentText(content)
